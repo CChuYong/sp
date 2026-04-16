@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Bell } from 'lucide-react'
 import { EVENTS } from '@/lib/mock'
 import BackButton from '@/components/BackButton'
 import HomeButton from '@/components/HomeButton'

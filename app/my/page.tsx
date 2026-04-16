@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import {
@@ -14,6 +14,14 @@ import { getHostedEvents, type HostedEvent } from '@/lib/storage'
 const MOCK_HOST_EVENTS = EVENTS.slice(2, 4)
 
 export default function MyPage() {
+  return (
+    <Suspense fallback={<div className="bg-gray-50 min-h-screen" />}>
+      <MyPageContent />
+    </Suspense>
+  )
+}
+
+function MyPageContent() {
   const searchParams = useSearchParams()
   const [role, setRole] = useState<'buyer' | 'host'>(
     searchParams.get('tab') === 'host' ? 'host' : 'buyer'
