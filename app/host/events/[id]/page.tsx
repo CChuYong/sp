@@ -58,7 +58,7 @@ export default function HostDashboard({ params }: { params: { id: string } }) {
         <StatCard label="총 예매" value={`${totalCount}/${ev.capacity}명`} sub={`잔여 ${ev.capacity - totalCount}석`} accent />
         <StatCard label="예상 수익" value={`${revenue.toLocaleString()}원`} sub="수수료 제외" />
         <StatCard label="입장 완료" value={`${checkedIn}명`} sub={`${Math.round(checkedIn/totalCount*100)||0}% 입장`} />
-        <StatCard label="취소" value={`${cancelled}명`} sub={`${cancelled * ev.price.toLocaleString()}원 환불`} />
+        <StatCard label="취소" value={`${cancelled}명`} sub={`${(cancelled * ev.price).toLocaleString()}원 환불`} />
       </div>
 
       {/* 예매율 */}
